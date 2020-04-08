@@ -16,13 +16,17 @@ pozwalał na jej przekroczenie)
         int goal = 100;
         int counter = 0;
         int i =1;
-        while(counter <= goal){
+        while(counter != goal){
             int idx = (int) (Math.random() * money.length + 1);
             System.out.print("Loop " + i + ": " + counter + " + " + money[idx-1] + " = ");
             counter+= money[idx - 1];
             System.out.print(counter + "\n");
+            if(counter > 100){
+                System.out.print("Loop " + i + ": " + counter + " - " + money[idx-1] + " = ");
+                counter -= money[idx - 1];
+                System.out.print(counter + "\n");
+            }
             i++;
-
         }
         System.out.println("Final sum: " + counter + " after " + (i-1) + " counting loops.");
 
